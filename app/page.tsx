@@ -16,7 +16,7 @@ export default async function Home({ searchParams }: searchParamsProps) {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${
       genre === "topics" ? "top_rated" : "popular"
-    }?api_key=${API_KEY}x&language=en&page=1`
+    }?api_key=${API_KEY}&language=en&page=1`
   );
 
   const data = await res.json();
@@ -25,7 +25,7 @@ export default async function Home({ searchParams }: searchParamsProps) {
   console.log(data.results);
 
   return (
-    <main className="px-40 mt-8">
+    <main className="px-4 sm:px-40 mt-8">
       <h1>Home</h1>
       <Results resultados={data.results} />
     </main>
