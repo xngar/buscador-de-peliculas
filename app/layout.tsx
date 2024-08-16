@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import NavbarTrend from "@/components/NavbarTrend";
+import Search from "@/components/Search";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         >
           <Navbar />
           <NavbarTrend />
+          <Search />
           {children}
         </ThemeProvider>
       </body>
