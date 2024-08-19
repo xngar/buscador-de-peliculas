@@ -21,9 +21,9 @@ type ResultadoProps = {
 const Results = ({ resultados }: ResultadoProps) => {
   return (
     <div className="md:grid-cols-2 md:grid sm:grid-cols-1 lg:grid-cols-4 gap-6  space-y-3 max-w-6xl">
-      {resultados.map((mapeo, llave) => (
-        <Suspense fallback="cargando...">
-          <Card key={llave}>
+      {resultados.map((mapeo, index) => (
+        <Suspense fallback="cargando..." key={index}>
+          <Card>
             <Link href={`/movie/${mapeo.id}`}>
               <h1 className="text-lg font-bold">
                 {mapeo.original_title || mapeo.name}
