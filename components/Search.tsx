@@ -10,7 +10,9 @@ const Search = () => {
   const router = useRouter();
   const HandleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     router.push(`/search/${search}`);
+    setSearch("");
   };
 
   return (
@@ -21,6 +23,7 @@ const Search = () => {
         placeholder="Ingrese la pelicula a buscar"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        id="busqueda"
       />
       <button
         type="submit"

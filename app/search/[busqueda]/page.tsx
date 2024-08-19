@@ -1,3 +1,4 @@
+import Results from "@/components/Results";
 import React from "react";
 
 type searchProps = {
@@ -8,10 +9,24 @@ type searchProps = {
 
 const Search = async ({ params }: searchProps) => {
   const searchItems = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${params.busqueda}`
+    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${params.busqueda}&languaje=en-US&page=1&include-adult=false`
   );
 
-  return <div>{params.busqueda}</div>;
+  const data = await searchItems.json();
+  const resultados = data.results;
+  return (
+    <div className="px-4 sm:px-40 mt-8">
+      {resultados &&
+        resultados.length ===
+        (
+          <div>
+            <p>No hay resultado</p>
+          </div>
+        )}
+
+      {resultados && <Results resultados={resultados} />}
+    </div>
+  );
 };
 
 export default Search;
