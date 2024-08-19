@@ -23,7 +23,7 @@ const Results = ({ resultados }: ResultadoProps) => {
     <div className="md:grid-cols-2 md:grid sm:grid-cols-1 lg:grid-cols-4 gap-6  space-y-3 max-w-6xl">
       {resultados.map((mapeo) => (
         <Suspense fallback="cargando...">
-          <Card>
+          <Card key={mapeo.id}>
             <Link href={`/movie/${mapeo.id}`}>
               <h1 className="text-lg font-bold">
                 {mapeo.original_title || mapeo.name}
