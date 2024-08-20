@@ -1,5 +1,5 @@
 import Results from "@/components/Results";
-import React from "react";
+import React, { Suspense } from "react";
 
 type searchProps = {
   params: {
@@ -15,17 +15,19 @@ const Search = async ({ params }: searchProps) => {
   const data = await searchItems.json();
   const resultados = data.results;
   return (
-    <div className="px-4 sm:px-40 mt-8">
-      {resultados &&
-        resultados.length ===
-        (
-          <div>
-            <p>No hay resultado</p>
-          </div>
-        )}
+    <Suspense>
+      <div className="px-4 sm:px-40 mt-8">
+        {resultados &&
+          resultados.length ===
+          (
+            <div>
+              <p>No hay resultado</p>
+            </div>
+          )}
 
-      {resultados && <Results resultados={resultados} />}
-    </div>
+        {resultados && <Results resultados={resultados} />}
+      </div>
+    </Suspense>
   );
 };
 

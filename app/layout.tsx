@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import NavbarTrend from "@/components/NavbarTrend";
 import Search from "@/components/Search";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +31,7 @@ export default function RootLayout({
           <Navbar />
           <NavbarTrend />
           <Search />
-          {children}
+          <Suspense fallback={null}>{children}</Suspense>
         </ThemeProvider>
       </body>
     </html>

@@ -15,16 +15,18 @@ const MoviePage = async ({ params }: movieParams) => {
   console.log(data);
 
   return (
-    <div>
-      {data.original_title}
+    <Suspense>
+      <div>
+        {data.original_title}
 
-      <Image
-        src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}
-        alt="poster"
-        width={500}
-        height={300}
-      />
-    </div>
+        <Image
+          src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}
+          alt="poster"
+          width={500}
+          height={300}
+        />
+      </div>
+    </Suspense>
   );
 };
 

@@ -1,5 +1,6 @@
 import Results from "@/components/Results";
 import Image from "next/image";
+import { Suspense } from "react";
 
 const API_KEY = process.env.API_KEY;
 
@@ -25,9 +26,12 @@ export default async function Home({ searchParams }: searchParamsProps) {
   console.log(data.results);
 
   return (
-    <main className="px-4 sm:px-40 mt-8">
-      <h1>Home</h1>
-      <Results resultados={data.results} />
-    </main>
+    <Suspense>
+      <main className="px-4 sm:px-40 mt-8">
+        <h1>Home</h1>
+
+        <Results resultados={data.results} />
+      </main>
+    </Suspense>
   );
 }

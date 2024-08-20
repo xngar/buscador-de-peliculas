@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -13,16 +13,18 @@ const NavbarTrenItem = ({ titulo, dire }: NavbarTrenItemProps) => {
   console.log(genre);
 
   return (
-    <Link
-      className={`hover:text-orange-700 ${
-        genre === dire
-          ? "underline decoration-orange-600 underline-offset-8 decoration-4 "
-          : ""
-      } `}
-      href={`/?genre=${dire}`}
-    >
-      {titulo}
-    </Link>
+    <Suspense>
+      <Link
+        className={`hover:text-orange-700 ${
+          genre === dire
+            ? "underline decoration-orange-600 underline-offset-8 decoration-4 "
+            : ""
+        } `}
+        href={`/?genre=${dire}`}
+      >
+        {titulo}
+      </Link>
+    </Suspense>
   );
 };
 

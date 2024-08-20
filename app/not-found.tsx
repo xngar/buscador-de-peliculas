@@ -1,7 +1,7 @@
 import React from "react";
 
-const Notfound = () => {
-  return <div>La pagina no se ha encontrado, lo resolveremos pronto.</div>;
+const NotFound = () => {
+  return <div>Hemos tenido un problema..</div>;
 };
 
-export default Notfound;
+export default NotFound;
