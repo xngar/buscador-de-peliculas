@@ -20,12 +20,13 @@ const MoviePage = async ({ params }: movieParams) => {
 
   return (
     <div className="flex flex-col px-4 md:flex-row md:px-40 mt-8 bg-slate-800 py-8 gap-6">
-      <div>
+      <div className="flex justify-center">
         <Image
-          src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}
           alt="poster"
-          width={500}
-          height={300}
+          width={300}
+          height={200}
+          className="rounded-lg shadow-lg"
         />
       </div>
       <div className="flex-1">
@@ -36,23 +37,23 @@ const MoviePage = async ({ params }: movieParams) => {
         <div className="flex gap-8 items-center flex-col md:flex-row ">
           <ChartMovie voto={data.vote_average} />
           <div>
-            <span className="font-bold">
-              Puntuación
-              <br /> de
-              <br /> usuario
+            <span className="font-bold text-white text-center text-wrap text-lg">
+              Puntuación de usuario
             </span>
           </div>
           <div>
             <Emoticons />
           </div>
           <div className="flex w-auto gap-2 h-10 items-center bg-blue-900 p-2 rounded-full text-white">
-            <span className="  text-sm">¿Cuál es tu vibra?</span>
+            <span className="  text-lg md:text-sm">¿Cuál es tu vibra?</span>
             <HoverCardMovie />
           </div>
         </div>
         <div className="mt-10">
-          <h2 className="text-white">Vista General</h2>
-          <p className="text-white">{data.overview}</p>
+          <h2 className="text-white text-3xl">Vista General</h2>
+          <p className="text-white text-1xl leading-relaxed mt-4 text-justify">
+            {data.overview}
+          </p>
         </div>
       </div>
     </div>
