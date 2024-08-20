@@ -19,7 +19,7 @@ const MoviePage = async ({ params }: movieParams) => {
   console.log(data);
 
   return (
-    <div className="flex px-40 mt-8 bg-slate-800 py-8 gap-6">
+    <div className="flex flex-col px-4 md:flex-row md:px-40 mt-8 bg-slate-800 py-8 gap-6">
       <div>
         <Image
           src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}
@@ -29,9 +29,11 @@ const MoviePage = async ({ params }: movieParams) => {
         />
       </div>
       <div className="flex-1">
-        <h1 className="text-4xl text-white">{data.original_title}</h1>
+        <h1 className="text-4xl text-white text-center mb-8">
+          {data.original_title}
+        </h1>
         {/* PUNTUACION */}
-        <div className="flex gap-4 items-center ">
+        <div className="flex gap-8 items-center flex-col md:flex-row ">
           <ChartMovie voto={data.vote_average} />
           <div>
             <span className="font-bold">
