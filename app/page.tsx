@@ -28,7 +28,7 @@ export default async function Home({ searchParams }: searchParamsProps) {
   return (
     <Suspense>
       <main className="px-4 sm:px-40 mt-8">
-        <h1>Home</h1>
+        <h1>Inicio</h1>
 
         <Results resultados={data.results} />
       </main>
