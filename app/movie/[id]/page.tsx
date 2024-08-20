@@ -9,7 +9,7 @@ type movieParams = {
 
 const MoviePage = async ({ params }: movieParams) => {
   const info = await fetch(
-    `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
   );
   const data = await info.json();
   console.log(data);

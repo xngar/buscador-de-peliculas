@@ -9,7 +9,7 @@ type searchProps = {
 
 const Search = async ({ params }: searchProps) => {
   const searchItems = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${params.busqueda}&languaje=en-US&page=1&include-adult=false`
+    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${params.busqueda}&languaje=en-US&page=1&include-adult=false`
   );
 
   const data = await searchItems.json();
@@ -21,7 +21,7 @@ const Search = async ({ params }: searchProps) => {
           resultados.length ===
           (
             <div>
-              <p>No hay resultado</p>
+              <p>No hay resultado..</p>
             </div>
           )}
 
