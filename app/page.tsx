@@ -1,4 +1,6 @@
+import FliReact from "@/components/FliReact";
 import Results from "@/components/Results";
+import Sliderb from "@/components/Sliderb";
 import Image from "next/image";
 import { Suspense } from "react";
 
@@ -28,6 +30,10 @@ export default async function Home({ searchParams }: searchParamsProps) {
   return (
     <Suspense>
       <main className="px-4 sm:px-40 mt-8">
+        <div>
+          <h1 className="text-2xl font-extrabold">Peliculas Populares</h1>
+          <Sliderb popular={data.results} />
+        </div>
         <Results resultados={data.results} />
       </main>
     </Suspense>

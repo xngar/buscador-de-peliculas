@@ -16,10 +16,10 @@ const Search = () => {
   };
 
   return (
-    <form className="flex px-4 mt-3 " onSubmit={HandleSubmit}>
+    <form className="flex  mt-3 relative px-20 " onSubmit={HandleSubmit}>
       <input
         type="text"
-        className="w-full outline-none placeholder-gray-400 h-10 bg-slate-300 mr-2 rounded-md"
+        className="w-full outline-none placeholder-gray-400 h-10 bg-slate-300 mr-2 rounded-full placeholder:px-10  focus:pl-10 focus:placeholder-opacity-0"
         placeholder="Ingrese la pelicula a buscar"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
@@ -27,7 +27,7 @@ const Search = () => {
       />
       <button
         type="submit"
-        className="text-black font-bold bg-yellow-400 p-2 rounded-md hover:bg-yellow-200 disabled:bg-gray-400 disabled:text-gray-600"
+        className=" font-bold bg-gradient-to-r from-cyan-500 to-blue-500 p-2 rounded-full hover:bg-yellow-200 disabled:bg-gray-400 disabled:text-gray-600 -ml-10 text-white"
         disabled={!search}
       >
         Buscar
