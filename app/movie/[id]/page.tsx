@@ -4,15 +4,10 @@ import Emoticons from "@/components/Emoticons";
 import HoverCardMovie from "@/components/HoverCard";
 import ModalTrailer from "@/components/ModalTrailer";
 import TypingAnimation from "@/components/magicui/typing-animation";
+import { movieParams } from "@/lib/types";
 
 import Image from "next/image";
 import React, { Suspense } from "react";
-
-type movieParams = {
-  params: {
-    id: string;
-  };
-};
 
 const MoviePage = async ({ params }: movieParams) => {
   const info = await fetch(

@@ -15,6 +15,7 @@ const Navbar = () => {
             alt="Logo IMDB"
             width={100}
             height={100}
+            className="dark:invert"
           />
         </Link>
       </div>

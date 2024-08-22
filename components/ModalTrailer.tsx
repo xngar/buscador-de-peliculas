@@ -9,10 +9,7 @@ import {
 } from "@/components/ui/dialog";
 
 import { Play } from "lucide-react";
-
-type ModalProps = {
-  idTrailer: string;
-};
+import { ModalProps } from "@/lib/types";
 
 const ModalTrailer = ({ idTrailer }: ModalProps) => {
   const direccion = `https://www.youtube.com/embed/${idTrailer}`;
