@@ -1,7 +1,9 @@
+import AnimacionTextoMovie from "@/components/AnimacionTextoMovie";
 import ChartMovie from "@/components/ChartMovie";
 import Emoticons from "@/components/Emoticons";
 import HoverCardMovie from "@/components/HoverCard";
 import ModalTrailer from "@/components/ModalTrailer";
+import TypingAnimation from "@/components/magicui/typing-animation";
 
 import Image from "next/image";
 import React, { Suspense } from "react";
@@ -20,8 +22,11 @@ const MoviePage = async ({ params }: movieParams) => {
   console.log(data);
 
   const trailer = await fetch(
-    `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+    `https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
   );
+
+  const trailer2 = await trailer.json();
+  console.log(trailer2);
 
   return (
     <div className="flex flex-col px-4 md:flex-row md:px-40 mt-8 bg-slate-800 py-8 gap-6">
@@ -38,9 +43,9 @@ const MoviePage = async ({ params }: movieParams) => {
         />
       </div>
       <div className="flex-1">
-        <h1 className="text-4xl text-white text-center mb-8">
-          {data.original_title}
-        </h1>
+        <div className="text-4xl text-white text-center mb-8">
+          <AnimacionTextoMovie texto={data.original_title} />
+        </div>
         {/* PUNTUACION */}
         <div className="flex gap-8 items-center flex-col md:flex-row ">
           <ChartMovie voto={data.vote_average} />
@@ -58,7 +63,7 @@ const MoviePage = async ({ params }: movieParams) => {
           </div>
         </div>
         <div className="flex  mt-8 bg-yellow-400 rounded-full w-fit p-2  mx-auto md:ml-0">
-          <ModalTrailer />
+          <ModalTrailer idTrailer={trailer2.results[0].key} />
         </div>
         <div className="mt-10">
           <h2 className="text-white text-3xl">Vista General</h2>

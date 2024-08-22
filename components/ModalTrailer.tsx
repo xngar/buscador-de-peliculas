@@ -10,7 +10,13 @@ import {
 
 import { Play } from "lucide-react";
 
-const ModalTrailer = () => {
+type ModalProps = {
+  idTrailer: string;
+};
+
+const ModalTrailer = ({ idTrailer }: ModalProps) => {
+  const direccion = `https://www.youtube.com/embed/${idTrailer}`;
+
   return (
     <Dialog>
       <DialogTrigger className="flex p-2">
@@ -25,7 +31,7 @@ const ModalTrailer = () => {
               <iframe
                 width="800"
                 height="700"
-                src="https://www.youtube.com/embed/uDzfa0w86Vw"
+                src={direccion}
                 title="Deadpool &amp; Wolverine | Tráiler Oficial | Doblado"
                 style={{ border: "none" }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
