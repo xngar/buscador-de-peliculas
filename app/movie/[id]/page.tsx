@@ -1,6 +1,7 @@
 import ChartMovie from "@/components/ChartMovie";
 import Emoticons from "@/components/Emoticons";
 import HoverCardMovie from "@/components/HoverCard";
+import ModalTrailer from "@/components/ModalTrailer";
 
 import Image from "next/image";
 import React, { Suspense } from "react";
@@ -26,7 +27,10 @@ const MoviePage = async ({ params }: movieParams) => {
           alt="poster"
           width={300}
           height={200}
-          className="rounded-lg shadow-lg"
+          className="rounded-lg shadow-lg object-cover"
+          placeholder="blur"
+          blurDataURL={`https://image.tmdb.org/t/p/original/${data.poster_path}`}
+          priority
         />
       </div>
       <div className="flex-1">
@@ -48,6 +52,9 @@ const MoviePage = async ({ params }: movieParams) => {
             <span className="  text-lg md:text-sm">¿Cuál es tu vibra?</span>
             <HoverCardMovie />
           </div>
+        </div>
+        <div className="flex  mt-8 bg-yellow-400 rounded-full w-fit p-2  mx-auto md:ml-0">
+          <ModalTrailer />
         </div>
         <div className="mt-10">
           <h2 className="text-white text-3xl">Vista General</h2>
