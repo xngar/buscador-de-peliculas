@@ -17,12 +17,22 @@ const ModalTrailer = () => {
         <Play />
         <p>Reproducir Trailer</p>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="max-w-4xl  p-4">
         <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
+          <DialogTitle></DialogTitle>
           <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            <div className="w-full h-96  relative">
+              <iframe
+                width="800"
+                height="700"
+                src="https://www.youtube.com/embed/uDzfa0w86Vw"
+                title="Deadpool &amp; Wolverine | Tráiler Oficial | Doblado"
+                style={{ border: "none" }}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>

@@ -19,6 +19,10 @@ const MoviePage = async ({ params }: movieParams) => {
   const data = await info.json();
   console.log(data);
 
+  const trailer = await fetch(
+    `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+  );
+
   return (
     <div className="flex flex-col px-4 md:flex-row md:px-40 mt-8 bg-slate-800 py-8 gap-6">
       <div className="flex justify-center">
