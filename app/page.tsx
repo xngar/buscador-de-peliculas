@@ -32,7 +32,7 @@ export default async function Home({ searchParams }: searchParamsProps) {
       <main className="px-4 sm:px-40 mt-8">
         <div>
           <h1 className="text-2xl font-extrabold">
-            Peliculas Populares Nuevas
+            Peliculas Populares Nuevas Nuevas Nuevas
           </h1>
           <Sliderb popular={data.results} />
         </div>
